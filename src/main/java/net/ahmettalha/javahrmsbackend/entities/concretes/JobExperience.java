@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "job_experiences")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "resumes"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "resumes", "candidateUser"})
 public class JobExperience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

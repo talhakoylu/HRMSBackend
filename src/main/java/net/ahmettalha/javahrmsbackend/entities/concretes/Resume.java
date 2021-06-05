@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name = "resumes")
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "education", "jobExperience", "candidateForeignLanguage", "candidateLink", "candidateUser", "image"})
 public class Resume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +42,10 @@ public class Resume {
     @ManyToOne
     @JoinColumn(name = "candidate_link_id")
     private CandidateLink candidateLink;
+
+    @ManyToOne
+    @JoinColumn(name = "candidate_id")
+    private CandidateUser candidateUser;
 
     @ManyToOne
     @JoinColumn(name = "image_id")

@@ -4,6 +4,7 @@ import net.ahmettalha.javahrmsbackend.business.abstracts.ResumeService;
 import net.ahmettalha.javahrmsbackend.business.constants.Messages;
 import net.ahmettalha.javahrmsbackend.core.utilities.results.DataResult;
 import net.ahmettalha.javahrmsbackend.core.utilities.results.Result;
+import net.ahmettalha.javahrmsbackend.core.utilities.results.SuccessDataResult;
 import net.ahmettalha.javahrmsbackend.core.utilities.results.SuccessResult;
 import net.ahmettalha.javahrmsbackend.dataAccess.abstracts.ResumeDao;
 import net.ahmettalha.javahrmsbackend.entities.concretes.Resume;
@@ -45,5 +46,11 @@ public class ResumeManager implements ResumeService {
     @Override
     public Result update(Resume entity) {
         return null;
+    }
+
+    @Override
+    public DataResult<List<Resume>> findAllByUserId(int id) {
+        List<Resume> results = this.resumeDao.findAllByCandidateUser_Id(id);
+        return new SuccessDataResult<List<Resume>>(results);
     }
 }

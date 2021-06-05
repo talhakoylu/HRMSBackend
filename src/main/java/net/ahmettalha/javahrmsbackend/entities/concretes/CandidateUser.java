@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "educations", "jobExperiences", "candidateForeignLanguages", "candidateLinks"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "educations", "jobExperiences", "candidateForeignLanguages", "candidateLinks", "resumes"})
 public class CandidateUser extends User{
 
     @Column(name = "first_name")
@@ -43,4 +43,7 @@ public class CandidateUser extends User{
 
     @OneToOne(mappedBy = "candidateUser")
     private CandidateLink candidateLinks;
+
+    @OneToMany(mappedBy = "candidateUser")
+    private List<Resume> resumes;
 }

@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 @Table(name = "job_postings")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "resumes", "candidateUser"})
+
 public class JobPosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

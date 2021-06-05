@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "candidate_links")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "resumes"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "resumes", "candidateUser"})
 public class CandidateLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
